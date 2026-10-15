@@ -1,5 +1,6 @@
 package com.example.pertemuan5.ui.theme
 
+import android.R.attr.thickness
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -31,11 +32,13 @@ import com.example.pertemuan5.R
 
 @Composable
 fun FormDataDiri(modifier: Modifier){
+    //variable-variabel untuk mengingat nilai masukan dari keyboard
     var textNama by remember { mutableStateOf("")}
     var textAlamat by remember {  mutableStateOf("")}
     var textJK by remember { mutableStateOf("")}
     val gender: List<String> = listOf("Laki-laki", "Perempuan")
 
+    //variabel-variabel untuk menyimpan data yang diperoleh dari komponen UI
     var nama by remember { mutableStateOf("")}
     var alamat by remember { mutableStateOf("")}
     var jenis by remember { mutableStateOf("")}
@@ -87,6 +90,7 @@ fun FormDataDiri(modifier: Modifier){
         )
         Button(
             modifier = Modifier.fillMaxWidth(1f),
+            // the button is enabled when the user makes a selection
             enabled = textAlamat.isNotEmpty(),
             onClick = {
                 nama=textNama
@@ -114,6 +118,7 @@ fun FormDataDiri(modifier: Modifier){
             Column (modifier = Modifier.padding(horizontal = 5.dp, vertical = 15.dp),){
                 Text(text = "Nama : "+nama, color = Color.White)
                 Text(text = "Gender : "+jenis, color = Color.White)
+                Text(text = "Alamat : "+alamat, color = Color.White)
             }
         }
     }
